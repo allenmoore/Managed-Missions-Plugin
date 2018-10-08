@@ -1,0 +1,27 @@
+.screen-reader-text {
+	clip: rect(.1rem, .1rem, .1rem, .1rem);
+	position: absolute !important;
+	height: .1rem;
+	width: .1rem;
+	overflow: hidden;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:focus {
+	background-color: var(--color-white);
+	border-radius: 0;
+	box-shadow: 0 0 .2rem .2rem rgba(0, 0, 0, .6);
+	clip: auto !important;
+	color: var(--color-black);
+	display: block;
+	font-size: .875rem;
+	font-weight: 700;
+	height: auto;
+	left: .5rem;
+	line-height: normal;
+	padding: 1.5rem 2.3rem 1.4rem;
+	text-decoration: none;
+	top: .5rem;
+	width: auto;
+	z-index: 100000;
+}

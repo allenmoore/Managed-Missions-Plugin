@@ -1,0 +1,67 @@
+/**
+ * Summit Women's Conference: Global Variables
+ * https://summitwomensconference.com
+ *
+ * Copyright (c) 2018 The Summit Church
+ * Licensed under the MIT license.
+ */
+:root {
+	--color-black: black; /* #000 */
+	--color-black-50: rgba(0, 0, 0, .5);
+	--color-black-80: rgba(0, 0, 0, .8);
+	--color-white: white; /* #fff */
+	--color-white-50: rgba(255, 255, 255, .5);
+	--color-white-75: rgba(255, 255, 255, .75);
+	--color-pink: rgba(209, 147, 145, 1); /* #d19391 */
+	--color-pink-50: rgba(209, 147, 145, .5); /* #d19391 */
+	--color-pink-light: rgba(217, 166, 165, 1); /* #d9a6a5 */
+	--color-pink-lighter: rgba(229, 196, 195, 1); /* #e5c4c3 */
+	--color-pink-lightest: rgba(242, 225, 225, 1); /* #f2e1e1 */
+	--color-pink-lightest-50: rgba(242, 225, 225, .5); /* #f2e1e1 */
+	--color-pink-dark: rgba(190, 134, 132, 1); /* #be8684 */
+	--color-pink-darker: rgba(153, 107, 106, 1); /* #996b6a */
+	--color-pink-darkest: rgba(115, 81, 80, 1); /* #735150 */
+	--color-pink-darkest-50: rgba(115, 81, 80, 50); /* #735150 */
+	--color-aqua: rgba(88, 124, 126, 1); /* #587c7e */
+	--color-aqua-light: rgba(121, 148, 149, 1); /* #799495 */
+	--color-aqua-lighter: rgba(179, 195, 196, 1); /* #b3c3c4 */
+	--color-aqua-lightest: rgba(209, 219, 219, 1); /* #d1dbdb */
+	--color-aqua-dark: rgba(60, 104, 106, 1); /* #3c686a */
+	--color-aqua-darker: rgba(39, 80, 82, 1); /* #275052 */
+	--color-aqua-darker-50: rgba(39, 80, 82, .5); /* #275052 */
+	--color-aqua-darkest: rgba(29, 59, 60, 1); /* #1d3b3c */
+	--color-green: rgba(114, 164, 117, 1); /* #72a475 */
+	--color-green-50: rgba(114, 164, 117, .5); /* #72a475 */
+	--color-green-light: rgba(152, 188, 154, 1); /* #98bc9a */
+	--color-green-lighter: rgba(178, 205, 179, 1); /* #b2cdb3 */
+	--color-green-lightest: rgba(216, 230, 217, 1); /* #d8e6d9 */
+	--color-green-dark: rgba(78, 139, 82, 1); /* #4e8b52 */
+	--color-green-dark-50: rgba(78, 139, 82, .5);
+	--color-green-darker: rgba(50, 107, 54, 1); /* #326b36 */
+	--color-green-darker-50: rgba(50, 107, 54, .5);
+	--color-green-darkest: rgba(42, 60, 43, 1); /* #2a3c2b */
+	--color-gray: rgba(65, 64, 66, 1); /* #414042 */
+	--color-gray-light: rgba(116, 116, 117, 1); /* #747475 */
+	--color-gray-lighter: rgba(168, 168, 169, 1); /* #a8a8a9 */
+	--color-gray-lightest: rgba(220, 220, 220, 1); /* #dcdcdc */
+	--color-gray-lightest-50: rgba(220, 220, 220, .5); /* #dcdcdc */
+	--color-gray-dark: rgba(54, 53, 55, 1); /* #363537 */
+	--color-gray-darker: rgba(36, 35, 36, 1); /* #242324 */
+	--color-gray-darkest: rgba(18, 18, 18, 1); /* #121212 */
+	--primary-font: brandon-grotesque, sans-serif;
+	--secondary-font: flama-condensed, sans-serif;
+	--max-width: 78.375rem;
+	--gutter-large: 4rem;
+	--gutter-medium: 2rem;
+	--gutter-base: 1rem;
+	--gutter-small: .5rem;
+
+	@custom-media --bp-tiny (min-width: 25rem); /* 400px */
+	@custom-media --bp-small (min-width: 40.625rem); /* 650px */
+	@custom-media --bp-wp (min-width: 48.9375rem); /* 783px */
+	@custom-media --bp-medium (min-width: 53.125rem); /* 850px */
+	@custom-media --bp-large (min-width: 62.5rem); /* 1000px */
+	@custom-media --bp-max-width (min-width: 78.375rem); /* 1260px */
+	@custom-media --bp-large-vertical (min-height: 50rem); /* 800px */
+	@custom-media --bp-hd-vertical (min-height: 67.5rem); /* 1080px */
+}

@@ -1,0 +1,13 @@
+.accordion-content {
+	height: 0;
+	overflow: hidden;
+	opacity: 0;
+
+	@nest .accordion-item.-active & {
+		height: auto;
+		padding: 1rem;
+		border-right: .0625rem solid var(--color-gray-lighter);
+		border-bottom: .0625rem solid var(--color-gray-lighter);
+		border-left: .0625rem solid var(--color-gray-lighter);
+	}
+}

@@ -1,0 +1,8 @@
+.accordion-module {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+	flex: 0 1 100%;
+}

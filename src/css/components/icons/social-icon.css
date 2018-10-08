@@ -1,0 +1,81 @@
+$green: rgba(114, 164, 117, 1);
+$pink: rgba(209, 147, 145, 1);
+$white: rgba(255, 255, 255, 1);
+
+.social-icon {
+	width: 1.25rem;
+	height: 1.25rem;
+	background-color: transparent;
+}
+
+.nav-link:hover .social-icon,
+.nav-link:focus .social-icon {
+	background-color: transparent
+}
+
+.social-icon > .icon {
+	display: block;
+	width: 1.25rem;
+	height: 1.25rem;
+	pointer-events: none;
+}
+
+.social-icon > .icon.-facebook {
+	background: svg-load('social/facebook.svg', fill=$white);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	transition: background 150ms linear;
+}
+
+.nav-link:hover .icon.-facebook,
+.nav-link:focus .icon.-facebook {
+	background: svg-load('social/facebook.svg', fill=$pink);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	transition: background 150ms linear;
+}
+
+.social-icon > .icon.-instagram {
+	background: svg-load('social/instagram.svg', fill=$white);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	transition: background 150ms linear;
+}
+
+.nav-link:hover .icon.-instagram,
+.nav-link:focus .icon.-instagram {
+	background: svg-load('social/instagram.svg', fill=$pink);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	transition: background 150ms linear;
+}
+
+.social-icon > .icon.-twitter {
+	background: svg-load('social/twitter.svg', fill=$white);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	transition: background 150ms linear;
+}
+
+.nav-link:hover .icon.-twitter,
+.nav-link:focus .icon.-twitter {
+	background: svg-load('social/twitter.svg', fill=$pink);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	transition: background 150ms linear;
+}
+
+.social-icon > .icon.-website {
+	background: svg-load('social/website.svg', fill=$white);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	transition: background 150ms linear;
+}
+
+.nav-link:hover .icon.-website,
+.nav-link:focus .icon.-website {
+	background: svg-load('social/website.svg', fill=$pink);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	transition: background 150ms linear;
+}

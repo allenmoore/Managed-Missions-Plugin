@@ -1,0 +1,33 @@
+.accordion-heading {
+	position: relative;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-content: stretch;
+	align-items: stretch;
+	order: 0;
+	flex: 0 1 100%;
+	align-self: auto;
+	background-color: var(--color-gray-lightest-50);
+	border: .0625rem solid var(--color-gray-lighter);
+	line-height: 1;
+	text-align: left;
+	cursor: pointer;
+
+	& > .title {
+		flex: 0 1 100%;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		padding-left: 1rem;
+		margin-top: 0;
+		margin-bottom: 0;
+		font-size: 1.25rem;
+		font-weight: 300;
+	}
+
+	& > .action {
+		align-self: flex-end;
+		flex: 0 0 auto;
+		padding: 1.125rem;
+	}
+}

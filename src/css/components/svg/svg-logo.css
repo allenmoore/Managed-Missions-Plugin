@@ -1,0 +1,59 @@
+.svg-logo.-swc {
+	width: 18rem; /* 288px */
+	max-width: 100%;
+	height: 9.375rem; /* 150px */
+}
+
+.svg-logo.-swc > .flower {
+	fill: var(--color-pink);
+}
+
+.svg-logo.-swc > .lettering {
+	fill: var(--color-gray);
+}
+
+.svg-logo.-tsc {
+	width: 4.6875rem; /* 75px */
+	max-width: 100%;
+	height: 4.9375rem; /* 79px */
+	fill: var(--color-white);
+}
+
+.svg-logo.-worship {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	fill: var(--color-white);
+	z-index: 400;
+}
+
+@media (--bp-tiny) {
+	.svg-logo.-swc {
+		width: 23rem; /* 368px */
+		height: 11.875rem; /* 190px */
+	}
+}
+
+@media (--bp-small) and (--bp-large-vertical) {
+	.svg-logo.-swc {
+		width: 37.5rem; /* 600px */
+		height: 19.4375rem; /* 311px */
+	}
+
+	.svg-logo.-worship {
+		width: 31.25rem; /* 500px */
+		height: 16.125rem; /* 258px */
+	}
+}
+
+@media (--bp-max-width) and (--bp-hd-vertical) {
+	.svg-logo.-swc {
+		width: 50rem; /* 800px */
+		height: 25.875rem; /* 414px */
+	}
+
+	.svg-logo.-worship {
+		width: 37.5rem;
+		height: 17.625rem;
+	}
+}

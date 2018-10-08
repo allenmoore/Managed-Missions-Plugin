@@ -1,0 +1,32 @@
+{
+  "name": "tsc/managed-missions",
+  "description": "",
+  "version": "1.0.0",
+  "type": "wordpress-plugin",
+  "keywords": [],
+  "homepage": "https://summitrdu.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Allen Moore",
+      "email": "amoore@summitrdu.com",
+      "homepage": "https://summitrdu.com",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+        "TSC\\ManagedMissions\\": "./includes/"
+    },
+    "files": [
+      "includes/TemplateTags.php"
+    ]
+  },
+  "extra": {
+    "branch-alias": {
+        "dev-master": "1.0.x-dev"
+    }
+  }
+}

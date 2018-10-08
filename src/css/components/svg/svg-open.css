@@ -1,0 +1,19 @@
+.svg-open {
+	width: 1rem;
+	max-width: 100%;
+	height: 1rem;
+	fill: var(--color-gray-light);
+	pointer-events: none;
+}
+
+.svg-open > .line {
+	fill: var(--color-gray);
+}
+
+.accordion-item.-active .svg-open > .line.-vertical {
+	opacity: 0;
+}
+
+.accordion-item.-active .svg-open > .line.-vertical {
+	opacity: 0;
+}

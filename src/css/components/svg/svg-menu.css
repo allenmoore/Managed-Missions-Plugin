@@ -1,0 +1,53 @@
+.svg-menu {
+	position: relative;
+	top: -.125rem;
+	width: 1.5rem;
+	height: 1.25rem;
+	vertical-align: middle;
+	fill: var(--color-white);
+	pointer-events: none;
+}
+
+.svg-menu > .bar {
+	opacity: 1;
+	transform: rotate(0);
+	transform-origin: 50% 50% 0;
+	transition: transform .3s ease-in-out, opacity .2s ease-in-out;
+}
+
+.svg-menu > .bar.-top {
+	transform-origin: 100% 85%;
+}
+
+.svg-menu > .bar.-bottom {
+	transform-origin: 100% 15%;
+}
+
+.navigation-button:hover > .svg-menu,
+.navigation-button:focus > .svg-menu {
+	fill: var(--color-white-75);
+}
+
+.navigation-button.-active .svg-menu {
+	fill: var(--color-white);
+}
+
+.navigation-button.-active:hover > .svg-menu,
+.navigation-button.-active:focus > .svg-menu {
+	fill: var(--color-white);
+}
+
+.navigation-button.-active .svg-menu > .bar.-top {
+	transform: rotate(45deg);
+	transition: transform .3s ease-in-out;
+}
+
+.navigation-button.-active .svg-menu > .bar.-middle {
+	opacity: 0;
+	transition: opacity .2s ease-in-out;
+}
+
+.navigation-button.-active .svg-menu > .bar.-bottom {
+	transform: rotate(-45deg);
+	transition: transform .3s ease-in-out;
+}

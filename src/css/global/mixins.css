@@ -1,0 +1,104 @@
+/**
+ * Global Mixins
+ */
+@define-mixin flex-direction $dir: row {
+	flex-direction: $(dir);
+}
+
+@define-mixin flex-wrap $wrap: nowrap {
+	flex-wrap: $(wrap);
+}
+
+@define-mixin flex-justify-content $justify: flex-start {
+	justify-content: $(justify);
+}
+
+@define-mixin flex-align-items $items: flex-start{
+	align-items: $(items);
+}
+
+@define-mixin flex-align-content $content: flex-start {
+	align-content: $(content);
+}
+
+@define-mixin flexbox $dir: row, $wrap: nowrap, $justify: flex-start, $content: flex-start, $items: flex-start {
+	display: flex;
+	@mixin flex-direction $(dir);
+	@mixin flex-wrap $(wrap);
+	@mixin flex-justify-content $(justify);
+	@mixin flex-align-content $(content);
+	@mixin flex-align-items $(items);
+}
+
+@define-mixin flex-row $wrap: nowrap, $justify: flex-start, $content: flex-start, $items: flex-start {
+	@mixin flexbox row, $(nowrap), $(justify), $(content), $(items);
+}
+
+@define-mixin flex-grow $grow: 0 {
+	flex-grow: $(grow);
+}
+
+@define-mixin flex-shrink $shrink: 1 {
+	flex-shrink: $(shrink);
+}
+
+@define-mixin flex-basis $basis: auto {
+	flex-basis: $(basis);
+}
+
+@define-mixin flex-order $order: 0 {
+	order: $(order);
+}
+
+@define-mixin flex-align-self $align: auto {
+	align-self: $(align);
+}
+
+@define-mixin flex $order: 0, $grow: 0, $shrink: 1, $basis: auto, $align: auto {
+	@mixin flex-order $(order);
+	flex: $(grow) $(shrink) $(basis);
+	@mixin flex-align-self $(align);
+}
+
+@define-mixin container {
+	max-width: var(--max-width);
+	height: auto;
+	padding-right: var(--gutter-base);
+	padding-left: var(--gutter-base);
+	margin: 0 auto;
+
+	@media (--bp-small) {
+		padding-right: var(--gutter-medium);
+		padding-left: var(--gutter-medium);
+	}
+
+	@media (--bp-max-width) {
+		padding-right: var(--gutter-large);
+		padding-left: var(--gutter-large);
+	}
+}
+
+@define-mixin button {
+	padding: .75rem 1.5rem;
+	margin-right: 1rem;
+	border: 0;
+	font-size: .875rem;
+	text-decoration: none;
+	text-transform: uppercase;
+	cursor: pointer;
+
+	@media (--bp-small) {
+		padding: 1rem 2rem;
+		font-size: 1rem;
+	}
+
+	&:visited,
+	&:hover,
+	&:focus {
+		 text-decoration: none;
+	}
+
+	&:nth-last-of-type(1) {
+		margin-right: 0;
+	}
+}

@@ -1,0 +1,20 @@
+.svg-arrow {
+	width: 2.625rem;
+	height: 2rem;
+	fill: var(--color-pink);
+	pointer-events: none;
+}
+
+@media (--bp-small) {
+	.svg-arrow {
+		width: 3.9375rem;
+		height: 1.96875rem;
+	}
+}
+
+@media (--bp-max-width) {
+	.svg-arrow {
+		width: 5.25rem;
+		height: 2.625rem;
+	}
+}
