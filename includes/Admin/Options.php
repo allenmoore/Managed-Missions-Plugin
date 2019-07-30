@@ -1,17 +1,19 @@
 <?php
 
-namespace TSC\ManagedMissions\Admin;
+namespace AM\ManagedMissions\Admin;
 
 class Options {
 
-	const OPT_GROUP = 'tsc_managed_missions';
+	const OPT_GROUP = 'am_managed_missions';
 
-	const OPT_NAME = 'tscmm_options';
+	const OPT_NAME = 'ammm_options';
 
 	public $fields = array(
+		'account_name',
 		'api_call_type',
 		'api_key',
 		'api_query_params',
+		'application_url',
 	);
 
 	protected $_options_page_hook;
@@ -24,9 +26,11 @@ class Options {
 		add_action( 'admin_init',  array( $this, 'registerOptions' ) );
 
 		$this->options = wp_parse_args( get_option( self::OPT_NAME ), array(
+			'account_name'     => $this->getDefaultOptions( 'account_name' ),
 			'api_call_type'    => $this->getDefaultOptions( 'api_call_type' ),
 			'api_key'          => $this->getDefaultOptions( 'api_key' ),
 			'api_query_params' => $this->getDefaultOptions( 'api_query_params' ),
+			'application_url'  => $this->getDefaultOptions( 'application_url' ),
 		) );
 	}
 
@@ -48,7 +52,7 @@ class Options {
 	 * Method that renders a options page.
 	 */
 	public function renderOptionsPage() {
-		tscmm_get_template( 'Admin/Options/options-page', array(
+		ammm_get_template( 'Admin/Options/options-page', array(
 			'fields'  => self::OPT_GROUP,
 			'options' => $this->_options_page_hook,
 		) );
@@ -72,25 +76,41 @@ class Options {
 		);
 
 		add_settings_field(
-			'tscmm_api_call_type',
-			__( 'API Call Type', 'managed-missions' ),
+			'ammm_account_name',
+			__( 'Managed Missions Account NAme', 'am-managed-missions' ),
+			array( $this, 'accountNameField' ),
+			$this->_options_page_hook,
+			self::OPT_GROUP
+		);
+
+		add_settings_field(
+			'ammm_api_call_type',
+			__( 'API Call Type', 'am-managed-missions' ),
 			array( $this, 'apiCallTypeField' ),
 			$this->_options_page_hook,
 			self::OPT_GROUP
 		);
 
 		add_settings_field(
-			'tscmm_api_key',
-			__( 'API Key', 'managed-missions' ),
+			'ammm_api_key',
+			__( 'API Key', 'am-managed-missions' ),
 			array( $this, 'apiKeyField' ),
 			$this->_options_page_hook,
 			self::OPT_GROUP
 		);
 
 		add_settings_field(
-			'tscmm_api_query_params',
-			__( 'API Query Params', 'managed-missions' ),
+			'ammm_api_query_params',
+			__( 'API Query Params', 'am-managed-missions' ),
 			array( $this, 'apiQueryParamsField' ),
+			$this->_options_page_hook,
+			self::OPT_GROUP
+		);
+
+		add_settings_field(
+			'ammm_application_url',
+			__( 'Mission Trip Applicaion URL', 'am-managed-missions' ),
+			array( $this, 'applicatoinURLField' ),
 			$this->_options_page_hook,
 			self::OPT_GROUP
 		);
@@ -99,8 +119,21 @@ class Options {
 	/**
 	 * Method that renders the API Call Type field.
 	 */
+	public function accountNameField() {
+		ammm_get_template( 'Admin/Options/input-field', array(
+			'field'   => self::OPT_NAME . '[account_name]',
+			'type'    => 'text',
+			'value'   => $this->options['account_name'],
+			'desc'    => 'Enter the associated church account name.',
+			'example' => 'gracechurchatlanta',
+		) );
+	}
+
+	/**
+	 * Method that renders the API Call Type field.
+	 */
 	public function apiCallTypeField() {
-		tscmm_get_template( 'Admin/Options/input-field', array(
+		ammm_get_template( 'Admin/Options/input-field', array(
 			'field'   => self::OPT_NAME . '[api_call_type]',
 			'type'    => 'text',
 			'value'   => $this->options['api_call_type'],
@@ -113,7 +146,7 @@ class Options {
 	 * Method that renders the API Key field.
 	 */
 	public function apiKeyField() {
-		tscmm_get_template( 'Admin/Options/input-field', array(
+		ammm_get_template( 'Admin/Options/input-field', array(
 			'field'   => self::OPT_NAME . '[api_key]',
 			'type'    => 'text',
 			'value'   => $this->options['api_key'],
@@ -126,7 +159,7 @@ class Options {
 	 * Method that renders the API Query Params field.
 	 */
 public function apiQueryParamsField() {
-		tscmm_get_template( 'Admin/Options/input-field', array(
+		ammm_get_template( 'Admin/Options/input-field', array(
 			'field'   => self::OPT_NAME . '[api_query_params]',
 			'type'    => 'text',
 			'value'   => $this->options['api_query_params'],
@@ -136,11 +169,24 @@ public function apiQueryParamsField() {
 	}
 
 	/**
+	 * Method that renders the API Query Params field.
+	 */
+	public function applicationURLField() {
+		ammm_get_template( 'Admin/Options/input-field', array(
+			'field'   => self::OPT_NAME . '[application_url]',
+			'type'    => 'text',
+			'value'   => $this->options['application_url'],
+			'desc'    => 'Enter missions trip application url',
+			'example' => 'https://your-app.com',
+		) );
+	}
+
+	/**
 	 * Method that renders the options section.
 	 */
 	public function renderOptionsSection() {
 		?>
-		<p><?php esc_html_e( 'Enter the associated options into each of the fields below.', 'managed-missions' ) ?></p>
+		<p><?php esc_html_e( 'Enter the associated options into each of the fields below.', 'am-managed-missions' ) ?></p>
 		<?php
 	}
 
@@ -157,13 +203,11 @@ public function apiQueryParamsField() {
 		}
 
 		switch ( $key ) {
-			case 'api_call_type':
-				return '';
-				break;
+			case 'account_name':
 			case 'api_key':
-				return '';
-				break;
 			case 'api_query_params':
+			case 'api_call_type':
+			case 'application_url':
 				return '';
 				break;
 			default:
@@ -189,6 +233,11 @@ public function apiQueryParamsField() {
 		foreach ( $options as $name => $option ) {
 			if ( in_array( $name, $this->fields ) ) {
 				switch ( $name ) {
+					case 'account_name':
+						if ( empty( $option ) ) {
+							$option = $this->getDefaultOptions( 'account_name' );
+						}
+						break;
 					case 'api_call_type':
 						if ( empty( $option ) ) {
 							$option = $this->getDefaultOptions( 'api_call_type' );
@@ -202,6 +251,11 @@ public function apiQueryParamsField() {
 					case 'api_query_params':
 						if ( empty( $option ) ) {
 							$option = $this->getDefaultOptions( 'api_query_params' );
+						}
+						break;
+					case 'application_url':
+						if ( empty( $option ) ) {
+							$option = $this->getDefaultOptions( 'application_url' );
 						}
 						break;
 					default:

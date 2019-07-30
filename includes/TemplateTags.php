@@ -5,11 +5,11 @@
  * @param string $__template_file the template file.
  * @param srray $__template_data the template date.
  */
-function tscmm_get_template( $__template_file, array $__template_data = [ ] ) {
+function ammm_get_template( $__template_file, array $__template_data = [ ] ) {
 
 	$__template_file = apply_filters(
-		'tscTSC\ManagedMissionsTemplate',
-		TSCMM_PATH . "views/$__template_file.php",
+		'tscAM\ManagedMissionsTemplate',
+		AMMM_PATH . "views/$__template_file.php",
 		$__template_file,
 		$__template_data
 	);
@@ -25,9 +25,9 @@ function tscmm_get_template( $__template_file, array $__template_data = [ ] ) {
  *
  * @return array an array of options.
  */
-function tscmm_get_options() {
+function ammm_get_options() {
 
-	$options = get_option( 'tsc-managed-missions-options' );
+	$options = get_option( 'tsc-am-managed-missions-options' );
 
 	return $options;
 }
@@ -37,9 +37,9 @@ function tscmm_get_options() {
  *
  * @return string the API Call Type
  */
-function tscmm_get_api_call_type() {
+function ammm_get_api_call_type() {
 
-	$options = tscmm_get_options();
+	$options = ammm_get_options();
 	$callType = ! empty( $options['api-call-type'] ) ? $options['api-call-type'] : '';
 
 	return $callType;
@@ -50,9 +50,9 @@ function tscmm_get_api_call_type() {
  *
  * @return string the API Key.
  */
-function tscmm_get_api_key() {
+function ammm_get_api_key() {
 
-	$options = tscmm_get_options();
+	$options = ammm_get_options();
 	$key = ! empty( $options['api-key'] ) ? $options['api-key'] : '';
 
 	return $key;
@@ -63,9 +63,9 @@ function tscmm_get_api_key() {
  *
  * @return script the query params.
  */
-function tscmm_get_api_query_params() {
+function ammm_get_api_query_params() {
 
-	$options = tscmm_get_options();
+	$options = ammm_get_options();
 	$queryParams = ! empty( $options['api-query-params'] ) ? $options['api-query-params'] : '';
 
 	return $queryParams;

@@ -1,19 +1,19 @@
 {
-  "name": "tsc-managed-missions-plugin",
+  "name": "am-managed-missions",
   "version": "1.0.0",
   "description": "A plugin integrating the Managed Missions API into WordPress.",
   "keywords": [],
-  "homepage": "https://summitrdu.com",
+  "homepage": "https://allenmoore.co",
   "license": "MIT",
   "main": "gulpfile.babel.js",
   "author": {
     "name": "Allen Moore",
-    "url": "https://summitrdu.com",
-    "email": "amoore@summitrdu.com"
+    "url": "https://allenmoore.co",
+    "email": "am@allenmoore.co"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SummitRDU/ManagedMissions"
+    "url": "https://github.com/allenmoore/Managed-Missions-Plugin"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development gulp webpack --progress",
