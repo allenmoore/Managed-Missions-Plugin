@@ -1,6 +1,6 @@
 <?php
 
-namespace TSC\ManagedMissions\Modules\APIs\ManagedMissions;
+namespace AM\ManagedMissions\Modules\APIs\ManagedMissions;
 
 class MissionTripsList {
 
@@ -23,13 +23,13 @@ class MissionTripsList {
 	 *
 	 * @var string
 	 */
-	public $cacheKey = 'tscmm_response';
+	public $cacheKey = 'ammm_response';
 
 	/**
 	 * The MissionTripsList constructor.
 	 */
 	public function __construct() {
-		add_shortcode( 'tscmm_trip_list', array( $this, 'renderView' ) );
+		add_shortcode( 'ammm_trip_list', array( $this, 'renderView' ) );
 	}
 
 	/**
@@ -51,7 +51,7 @@ class MissionTripsList {
 	 */
 	public function getAPICall() {
 
-		$call = tscmm_get_api_call_type();
+		$call = ammm_get_api_call_type();
 
 		return $call;
 	}
@@ -63,7 +63,7 @@ class MissionTripsList {
 	 */
 	public function getAPIKey() {
 
-		$key = tscmm_get_api_key();
+		$key = ammm_get_api_key();
 
 		return $key;
 	}
@@ -75,7 +75,7 @@ class MissionTripsList {
 	 */
 	public function getResponseParams() {
 
-		$params = tscmm_get_api_query_params();
+		$params = ammm_get_api_query_params();
 
 		return $params;
 	}
@@ -474,7 +474,7 @@ class MissionTripsList {
 				<div class="trip-description">
 					<?php echo esc_html( $excerpt ); ?>
 				</div>
-				<a class="trip-link" href="<?php echo esc_url( $url ); ?>" title="<?php echo esc_attr( 'Permalink to: Apply to be a part of the Missions Trip to ' . $destination ); ?>"><?php esc_html_e( 'Apply', 'managed-missions' ); ?></a>
+				<a class="trip-link" href="<?php echo esc_url( $url ); ?>" title="<?php echo esc_attr( 'Permalink to: Apply to be a part of the Missions Trip to ' . $destination ); ?>"><?php esc_html_e( 'Apply', 'am-managed-missions' ); ?></a>
 			</div>
 		</div>
 		<?php

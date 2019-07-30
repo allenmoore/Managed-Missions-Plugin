@@ -1,26 +1,26 @@
 <?php
 /**
  * Plugin Name: Managed Missions
- * Plugin URI:  https://summitrdu.com
+ * Plugin URI:  https://allenmoore.co
  * Description: A plugin integrating the Managed Missions API into WordPress.
  * Version:     1.0.0
  * Author:      Allen Moore
- * Author URI:  https://summitrdu.com
- * Text Domain: managed-missions
+ * Author URI:  https://allenmoore.co
+ * Text Domain: am-managed-missions
  * Domain Path: /languages
  * License:     MIT
  */
 
-namespace TSC\ManagedMissions;
+namespace AM\ManagedMissions;
 
-use TSC\ManagedMissions\Plugin;
+use AM\ManagedMissions\Plugin;
 
 // Useful global constants
-define( 'TSCMM_VERSION', '1.0.0' );
-define( 'TSCMM_PLUGIN'    , __DIR__ . '/managed-missions.php' );
-define( 'TSCMM_URL', plugin_dir_url( __FILE__ ) );
-define( 'TSCMM_PATH', dirname( __FILE__ ) . '/' );
-define( 'TSCMM_INC', TSCMM_PATH . 'includes/' );
+define( 'AMMM_VERSION', '1.0.0' );
+define( 'AMMM_PLUGIN'    , __DIR__ . '/am-managed-missions.php' );
+define( 'AMMM_URL', plugin_dir_url( __FILE__ ) );
+define( 'AMMM_PATH', dirname( __FILE__ ) . '/' );
+define( 'AMMM_INC', AMMM_PATH . 'includes/' );
 
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	require_once __DIR__ . '/vendor/autoload.php';
@@ -37,9 +37,9 @@ function initialize() {
 	 *
 	 * @param Plugin $plugin
 	 */
-	do_action( 'tscmm_loaded', $plugin );
+	do_action( 'ammm_loaded', $plugin );
 }
-add_action( 'after_setup_theme', 'TSC\ManagedMissions\initialize', 20 );
+add_action( 'after_setup_theme', 'AM\ManagedMissions\initialize', 20 );
 
 /**
  * Function to run at plugin activation.
@@ -51,4 +51,4 @@ add_action( 'after_setup_theme', 'TSC\ManagedMissions\initialize', 20 );
 function activate() {
 	flush_rewrite_rules();
 }
-register_activation_hook( __FILE__, 'TSC\ManagedMissions\activate' );
+register_activation_hook( __FILE__, 'AM\ManagedMissions\activate' );
