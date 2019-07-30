@@ -48,28 +48,6 @@ gulp.task('js', gulp.series('javascript', function(done) {
 }));
 
 /**
- * Gulp task to run all JavaScript processes in a sequenctial order.
- *
- * @param   {String}   'js' the task name.
- * @param   {Function} cb   the pipe sequence that gulp should run.
- * @returns {void}
- */
-gulp.task('concat-js', gulp.series('concat', function(done) {
-  done();
-}));
-
-/**
- * Gulp task to run all JavaScript processes in a sequenctial order.
- *
- * @param   {String}   'js' the task name.
- * @param   {Function} cb   the pipe sequence that gulp should run.
- * @returns {void}
- */
-gulp.task('copy-js', gulp.series(['copy'], function(done) {
-  done();
-}));
-
-/**
  * Gulp task to run all minification processes in a sequencial order.
  *
  * @param   {String}   'minify' the task name.
@@ -82,7 +60,7 @@ gulp.task('minify', gulp.series(['uglify', 'cssnano'], function(done) {
 
 gulp.task('watch', () => {
   gulp.watch('./src/css/**/*.css', gulp.series(['clean-files', 'css', 'minify']));
-  gulp.watch('./src/js/**/*.js', gulp.series(['clean-files', 'js', 'concat-js', 'copy-js', 'minify']));
+  gulp.watch('./src/js/**/*.js', gulp.series(['clean-files', 'js', 'minify']));
   gulp.watch('./src/svg/**/*.svg', gulp.series(['clean-files', 'svg']));
 })
 
@@ -93,6 +71,6 @@ gulp.task('watch', () => {
  * @param   {Function} cb        the pipe sequence that gulp should run.
  * @returns {void}
  */
-gulp.task('default', gulp.series(['clean-files', 'svg', 'css', 'js', 'concat-js', 'copy-js', 'minify'], function(done) {
+gulp.task('default', gulp.series(['clean-files', 'svg', 'css', 'js', 'minify'], function(done) {
   done();
 }));
